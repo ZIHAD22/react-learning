@@ -1,0 +1,64 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+.container {
+  width: 500px;
+  margin: auto;
+  border: 1px solid black;
+  padding: 19px;
+  margin-top: 50px;
+  font-family: monospace;
+}
+
+.bio h3 {
+  padding: 10px 0px;
+}
+
+.bio p {
+  padding-bottom: 7px;
+}
+
+.Skills ul {
+  list-style: none;
+  float: left;
+  padding-bottom: 22px;
+}
+
+.Skills h3 {
+  width: 100px;
+  padding: 25px 0px;
+}
+
+.Skills ul li {
+  float: right;
+  padding: 9px 14px;
+  background: #a5a6a7;
+  margin: 0px 15px;
+  border-radius: 8px;
+}
+
+.Skills {
+  overflow: hidden;
+}
+
+.Links ul {
+  list-style: none;
+  float: left;
+  padding-bottom: 22px;
+}
+
+.Links h3 {
+  padding: 25px 0px;
+}
+
+.Links ul li {
+  float: right;
+  padding: 9px 14px;
+  margin: 0px 15px;
+  border-radius: 8px;
+}
+
+.Links {
+  overflow: hidden;
+}
