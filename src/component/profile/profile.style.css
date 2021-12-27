@@ -62,3 +62,6 @@
 .Links {
   overflow: hidden;
 }
+.Links a {
+  text-decoration: none;
+}
