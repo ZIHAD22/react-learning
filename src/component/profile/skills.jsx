@@ -4,8 +4,10 @@ const Skills = () => (
     <h3>Skills:</h3>
     <ul>
       <li>PHP</li>
-      <li>javaScript</li>
-      <li>node</li>
+      <li>JavaScript</li>
+      <li>Node</li>
+      <li>React</li>
+      <li>MongoDB</li>
     </ul>
   </div>
 );
