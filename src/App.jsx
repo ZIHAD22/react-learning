@@ -2,7 +2,8 @@ import { Component } from "react";
 // import Profile from "./component/profile/index";
 // import State from "./state/state";
 // import Inputs from "./inputs/index.js";
-import UncontrolledForm from "./forms/uncontrolled";
+// import UncontrolledForm from "./forms/uncontrolled";
+import ControlledForm from "./forms/controlled-from";
 
 class App extends Component {
   render() {
@@ -11,7 +12,8 @@ class App extends Component {
         {/* <Profile /> */}
         {/* <State /> */}
         {/* <Inputs /> */}
-        <UncontrolledForm />
+        {/* <UncontrolledForm /> */}
+        <ControlledForm />
       </div>
     );
   }
