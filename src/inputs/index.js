@@ -8,6 +8,7 @@ class Inputs extends Component {
     brithDay: "",
     gender: "",
     agree: false,
+    skills: [],
   };
 
   handleChange = (event) => {
@@ -17,8 +18,21 @@ class Inputs extends Component {
   handleCheackBox = (event) => {
     this.setState({ agree: event.target.checked });
   };
+  handleSkillChange = (event) => {
+    if (event.target.checked) {
+      this.setState({
+        skills: [...this.state.skills, event.target.value],
+      });
+    } else {
+      const skills = this.state.skills.filter(
+        (skill) => skill !== event.target.value
+      );
+      this.setState({ skills });
+    }
+  };
+
   render() {
-    const { name, country, bio, brithDay, agree } = this.state;
+    const { name, country, bio, brithDay, agree, skills } = this.state;
     return (
       <div className="my-2 mx-4">
         <h1 style={{ textAlign: "center" }}>WORK WITH RAECT FROMS</h1>
@@ -57,12 +71,7 @@ class Inputs extends Component {
           type="date"
           name="brithDay"
         />
-        <button
-          onClick={() => console.log(this.state)}
-          className="btn btn-success"
-        >
-          Show Data
-        </button>
+
         <div className="col-md-6 my-4">
           <label htmlFor="male">
             <input
@@ -98,6 +107,56 @@ class Inputs extends Component {
             Other
           </label>
         </div>
+        <div className="col-md-6">
+          <label htmlFor="Javascript">
+            <input
+              className="mx-4"
+              type="checkbox"
+              value="Javascript"
+              id="Javascript"
+              name="skills"
+              onChange={this.handleSkillChange}
+              checked={skills.includes("Javascript")}
+            />
+            Javascript
+          </label>
+          <label htmlFor="java">
+            <input
+              className="mx-4"
+              type="checkbox"
+              id="java"
+              value="java"
+              name="skills"
+              onChange={this.handleSkillChange}
+              checked={skills.includes("java")}
+            />
+            java
+          </label>
+          <label htmlFor="Golang">
+            <input
+              className="mx-4"
+              type="checkbox"
+              id="Golang"
+              value="Golang"
+              name="skills"
+              onChange={this.handleSkillChange}
+              checked={skills.includes("Golang")}
+            />
+            Golang
+          </label>
+          <label htmlFor="Python">
+            <input
+              className="mx-4"
+              type="checkbox"
+              id="Python"
+              value="Python"
+              name="skills"
+              onChange={this.handleSkillChange}
+              checked={skills.includes("Python")}
+            />
+            Python
+          </label>
+        </div>
         <div className="col-md-6 my-4">
           <label htmlFor="forChacked">
             <input
@@ -109,6 +168,12 @@ class Inputs extends Component {
             I Agree to all terms and condition
           </label>
         </div>
+        <button
+          onClick={() => console.log(this.state)}
+          className="btn btn-success"
+        >
+          Show Data
+        </button>
       </div>
     );
   }
