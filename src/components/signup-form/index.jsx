@@ -12,6 +12,7 @@ class SignupForm extends Component {
   state = {
     values: initValues,
     agreement: false,
+    errors: {},
   };
 
   handleChange = (event) => {
@@ -31,9 +32,44 @@ class SignupForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state);
-    event.target.reset();
-    this.setState({ values: initValues, agreement: false });
+    const { isValid, errors } = this.validate();
+
+    if (isValid) {
+      console.log(this.state.values);
+      event.target.reset();
+      this.setState({ values: initValues, agreement: false, errors: {} });
+    } else {
+      // console.log(errors);
+      this.setState({ errors });
+    }
+  };
+
+  validate = () => {
+    const errors = {};
+    const {
+      values: { name, email, password, birthDate, gender },
+    } = this.state;
+
+    if (!name) {
+      errors.name = "Please Provide Your Name";
+    }
+    if (!email) {
+      errors.email = "Please Provide Your Email";
+    }
+    if (!password) {
+      errors.password = "Please Provide Your Password";
+    }
+    if (!birthDate) {
+      errors.birthDate = "Please Provide Your Birth Date";
+    }
+    if (!gender) {
+      errors.gender = "Please Select your Gender";
+    }
+
+    return {
+      errors,
+      isValid: Object.keys(errors).length === 0,
+    };
   };
 
   render() {
@@ -43,6 +79,7 @@ class SignupForm extends Component {
         <Form
           values={this.state.values}
           agreement={this.state.agreement}
+          errors={this.state.errors}
           handleChange={this.handleChange}
           handleAgreement={this.handleAgreement}
           handleSubmit={this.handleSubmit}

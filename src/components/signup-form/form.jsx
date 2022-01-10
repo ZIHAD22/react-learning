@@ -4,6 +4,7 @@ import TextInput from "./Text-input";
 const Form = ({
   values,
   handleChange,
+  errors,
   handleAgreement,
   agreement,
   handleSubmit,
@@ -12,6 +13,7 @@ const Form = ({
     <TextInput
       name="name"
       placeholder="Enter Your Name"
+      error={errors.name}
       value={values.name}
       onChange={handleChange}
     />
@@ -19,6 +21,7 @@ const Form = ({
       name="email"
       type="email"
       placeholder="Enter Your Email"
+      error={errors.email}
       value={values.email}
       onChange={handleChange}
     />
@@ -26,12 +29,14 @@ const Form = ({
       name="password"
       type="password"
       placeholder="Enter Your Password"
+      error={errors.password}
       value={values.password}
       onChange={handleChange}
     />
     <TextInput
       name="birthDate"
       type="date"
+      error={errors.birthDate}
       value={values.birthDate}
       onChange={handleChange}
     />
@@ -69,6 +74,10 @@ const Form = ({
         />
         Other
       </label>
+
+      {errors.gender && (
+        <div className="invalid-feedback d-block">{errors.gender}</div>
+      )}
     </div>
     <div className="form-controll mx-2 my-4">
       <label htmlFor="agreement">
@@ -92,6 +101,7 @@ const Form = ({
 Form.propTypes = {
   values: PropTypes.object.isRequired,
   agreement: PropTypes.bool.isRequired,
+  errors: PropTypes.object,
   handleAgreement: PropTypes.func.isRequired,
   handleChange: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
