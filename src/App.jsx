@@ -4,7 +4,8 @@ import { Component } from "react";
 // import Inputs from "./components/inputs/index.js";
 // import UncontrolledForm from "./components/forms/uncontrolled";
 // import ControlledForm from "./components/forms/controlled-from";
-import SplitForm from "./components/split-form/index";
+// import SplitForm from "./components/split-form/index";
+import SignupForm from "./components/signup-form/index";
 
 class App extends Component {
   render() {
@@ -15,7 +16,8 @@ class App extends Component {
         {/* <Inputs /> */}
         {/* <UncontrolledForm /> */}
         {/* <ControlledForm /> */}
-        <SplitForm />
+        {/* <SplitForm /> */}
+        <SignupForm />
       </div>
     );
   }
